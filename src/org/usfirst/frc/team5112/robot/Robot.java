@@ -335,9 +335,9 @@ public class Robot extends SampleRobot {
 			} else {
 				// rotation /= 2.0;
 				if (rotation < 0) {
-					rotation = -Utils.normalize(Math.abs(rotation), 0.35, 1) / 2.0;
+					rotation = -Utils.normalize(Math.abs(rotation), 0.35, 1) / 4.0;
 				} else {
-					rotation = Utils.normalize(rotation, 0.35, 1) / 2.0;
+					rotation = Utils.normalize(rotation, 0.35, 1) / 4.0;
 				}
 			}
 
