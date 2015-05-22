@@ -8,5 +8,5 @@ public class AutonomousValues {
 	/*
 	 * set auto
 	 */
-	public static final int AUTO_METHOD = DEFAULT;
+	public static final int AUTO_METHOD = DO_NOTHING;
 }

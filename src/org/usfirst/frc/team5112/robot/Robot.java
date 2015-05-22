@@ -67,7 +67,7 @@ public class Robot extends SampleRobot {
 		auto = (Integer) autoChooser.getSelected();
 		DriverStation.reportError(auto.toString() + "\n", false);
 		robotDrive.setSafetyEnabled(false);
-		switch (AutonomousValues.AUTO_METHOD) {
+		switch (auto) {
 		case AutonomousValues.TOTE:
 			toteAuto();
 			break;
@@ -324,7 +324,8 @@ public class Robot extends SampleRobot {
 			// To the right
 			// robotDrive.mecanumDrive_Cartesian(0.5, -0.01, 0.0, 0);
 			driveRight(0.8);
-		} else {
+		}else {
+		
 			double throttle = stick.getThrottle();
 			if (throttle <= 0) {
 				throttle = 0.6;
@@ -335,9 +336,9 @@ public class Robot extends SampleRobot {
 			} else {
 				// rotation /= 2.0;
 				if (rotation < 0) {
-					rotation = -Utils.normalize(Math.abs(rotation), 0.35, 1) / 4.0;
+					rotation = -Utils.normalize(Math.abs(rotation), 0.35, 1) / 2.0;
 				} else {
-					rotation = Utils.normalize(rotation, 0.35, 1) / 4.0;
+					rotation = Utils.normalize(rotation, 0.35, 1) / 2.0;
 				}
 			}
 
