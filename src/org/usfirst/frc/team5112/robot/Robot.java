@@ -46,8 +46,8 @@ public class Robot extends SampleRobot {
 		robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 
 		// Here are the controllers
-		stick = new Joystick(1);
-		xbox = new Joystick(0);
+		stick = new Joystick(RobotMap.joystickPort);
+		xbox = new Joystick(RobotMap.xboxPort);
 		// compressor
 		compressor = new Compressor();
 		compressor.setClosedLoopControl(true);
@@ -65,7 +65,6 @@ public class Robot extends SampleRobot {
 	 */
 	public void autonomous() {
 		auto = (Integer) autoChooser.getSelected();
-		DriverStation.reportError(auto.toString() + "\n", false);
 		robotDrive.setSafetyEnabled(false);
 		switch (auto) {
 		case AutonomousValues.TOTE:
@@ -238,9 +237,6 @@ public class Robot extends SampleRobot {
 	}
 
 	private void toteAuto() {
-		/*
-		 * driveForward(0.2); Timer.delay(0.3); stop(); Timer.delay(0.4);
-		 */
 		closeGripper();
 		Timer.delay(0.4);
 		driveBackward(0.5);
@@ -317,12 +313,8 @@ public class Robot extends SampleRobot {
 	 */
 	private void operateDrivetrain() {
 		if (stick.getRawButton(3)) {
-			// To the left
-			// robotDrive.mecanumDrive_Cartesian(-0.5, 0.04, 0.0175, 0);
 			driveLeft(0.8);
 		} else if (stick.getRawButton(4)) {
-			// To the right
-			// robotDrive.mecanumDrive_Cartesian(0.5, -0.01, 0.0, 0);
 			driveRight(0.8);
 		}else {
 		
@@ -350,7 +342,6 @@ public class Robot extends SampleRobot {
 			if (Math.abs(x) < 0.1) {
 				x = 0;
 			}
-			// drive(3 * stick.getX() / 5.0, 3 * y / 5.0, rotation);
 			drive(x * throttle, y * throttle, rotation);
 
 		}
