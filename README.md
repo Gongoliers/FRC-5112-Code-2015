@@ -1,6 +1,6 @@
 # 2015 Competition Robot
 
-> Team 5112, The Gongoliers
+> FRC Team 5112, The Gongoliers
 
 > Programmed by Kyle Corry
 
